@@ -31,7 +31,7 @@ Ce projet vise à concevoir un **système data de bout en bout** capable de :
 * **Dataset :** Online Retail II
 * **Source :** Kaggle
 * **Nature des données :** Transactions clients horodatées
-* **Période couverte :** 2009 – 2011
+* **Période couverte :** Décembre 2009 – Décembre 2010
 * **Variables clés :**
 
   * `InvoiceDate`
@@ -91,77 +91,112 @@ Les modèles sont comparés sur la base de métriques quantitatives et de leur c
 
 ---
 
-## 📈 Résultats (exemple)
+## 📈 Résultats
 
-* Le modèle **XGBoost** offre le meilleur compromis biais/variance sur les données agrégées.
-* Le modèle **LSTM** capture efficacement les dépendances temporelles longues.
-* Amélioration significative de l’erreur de prévision par rapport au modèle de référence statistique.
+Les expérimentations montrent que les modèles Machine Learning et Deep Learning 
+(LSTM, XGBoost) offrent de meilleures performances que les approches statistiques 
+classiques sur les données agrégées.
 
-*(Les résultats chiffrés détaillés sont présentés dans les notebooks et le dashboard.)*
 
 ---
 
 ## 🧪 Monitoring & Détection de dérive
 
-Un système de monitoring est mis en place afin de :
-
-* Détecter la **dérive des données** (Data Drift) :
-
+Le dashboard interactif (Streamlit) permet de :
+* Visualiser l’évolution des distributions des données et des métriques du modèle
+* Détecter la dérive des données (Data Drift) :
   * Population Stability Index (PSI)
   * Test de Kolmogorov-Smirnov (KS)
-* Surveiller la **performance du modèle** dans le temps
-* Simuler des scénarios de **retraining automatique**
+* Surveiller la performance des modèles dans le temps
+* Simuler des scénarios de retraining automatique
 
-Un dashboard interactif permet de visualiser l’évolution des distributions et des métriques.
 
 ---
 
-## 🚀 Déploiement
+## 🚀 Déploiement & Accès au Dashboard
 
 * **API :** Flask
 * **Endpoints :**
-
   * `/predict` – prévision des volumes futurs
   * `/health` – vérification de l’état du service
+* **Dashboard interactif :** Streamlit
+  * Accessible localement via : http://localhost:8501
 * **Containerisation :** Docker
 * **Versioning :** modèles sauvegardés et historisés
 
+
 ---
+## 🐳 Lancer le projet avec Docker
+
+1. **Construire l’image Docker :**
+```bash
+docker build -t ts-forecasting-dashboard .
+
+2. **Lancer le container :**
+docker run -p 8501:8501 ts-forecasting-dashboard
+
+3.Accéder au dashboard :
+Ouvrir dans votre navigateur :http://127.0.0.1:8501/
+
+
+```markdown
+## 📂 Notebooks
+
+* `notebooks/01_preprocessing.ipynb` – Analyse et nettoyage des données
+* `notebooks/02_modeling.ipynb` – Implémentation et comparaison des modèles
+* `notebooks/03_monitoring.ipynb` – Simulation de dérive et visualisation
+
+Le système de monitoring inclut :
+
+- Calcul quotidien du PSI (Population Stability Index)
+- Historisation automatique des valeurs PSI
+- Déclenchement d’alertes si PSI > 0.3
+- Visualisation de l’évolution du PSI dans le temps
+- Simulation de retraining via dashboard Streamlit
 
 ## 🗂 Structure du projet
 
 ```
-📦 time-series-forecasting-monitoring
- ┣ 📂 data
- ┣ 📂 notebooks
- ┣ 📂 src
- ┃ ┣ preprocessing.py
- ┃ ┣ forecasting.py
- ┃ ┣ drift_detection.py
- ┃ ┗ retraining.py
+📦 time-series-forecasting-ml-monitoring
  ┣ 📂 api
- ┃ ┗ app.py
+ ┃ ┣ 📄 app.py
+ ┃ ┗ 📄 api.log
  ┣ 📂 dashboard
- ┃ ┗ monitoring.py
- ┣ 📄 README.md
- ┣ 📄 requirements.txt
+ ┃ ┗ 📄 monitoring.py
+ ┣ 📂 data
+ ┃ ┗ 📄 daily_data_preprocessed.csv
+ ┣ 📂 models
+ ┃ ┗ 📄 lstm_model.pkl
+ ┣ 📂 notebooks
+ ┃ ┣ 📄 01_eda.ipynb
+ ┃ ┣ 📄 02_preprocessing.ipynb
+ ┃ ┗ 📄 03_modeling.ipynb
+ ┣ 📂 src
+ ┃ ┗ 📄 drift_detection.py
+ ┣ 📄 predictions.csv
+ ┣ 📄 psi_log.csv
+ ┣ 📄 alerts_log.csv
+ ┣ 📄 generate_predictions.py
  ┣ 📄 Dockerfile
- ┗ 📄 architecture.png
+ ┣ 📄 requirements.txt
+ ┣ 📄 architecture.png
+ ┗ 📄 README.md
+
 ```
 
----
+
 
 ## 🛠 Technologies utilisées
 
-* **Langage :** Python
-* **Data Science :** Pandas, NumPy, Scikit-learn
-* **Time Series :** Statsmodels, Prophet
-* **Deep Learning :** TensorFlow / Keras
-* **ML Ops :** MLflow, Evidently AI
-* **Big Data (optionnel) :** PySpark
-* **API :** Flask
-* **Dashboard :** Streamlit
-* **Conteneurisation :** Docker
+- Langage : Python
+- Data Science : Pandas, NumPy, Scikit-learn
+- Time Series : Statsmodels
+- Deep Learning : TensorFlow / Keras
+- API : Flask
+- Monitoring & Dashboard : Streamlit
+- Containerisation : Docker
+- Visualisation : Matplotlib
+
 
 ---
 
@@ -177,7 +212,7 @@ Un dashboard interactif permet de visualiser l’évolution des distributions et
 ## 👩‍💻 Auteur
 
 **Hafssa El Mouddane**
-Ingénieure Data Science & Big Data
+Ingénieure Data Science 
 📎 GitHub : HSSEL
 📎 LinkedIn : linkedin.com/in/hafssa-el-mouddane-815ba7251
 

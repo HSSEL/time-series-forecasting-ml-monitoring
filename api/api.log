@@ -1,0 +1,293 @@
+2026-01-06 22:02:41,487 - __main__ - INFO - Démarrage de l'API Flask LSTM
+2026-01-06 22:02:41,487 - __main__ - INFO - Chargement du modèle depuis models/lstm_model.pkl
+2026-01-06 22:02:55,172 - __main__ - INFO - Modèle chargé avec succès
+2026-01-06 22:02:55,172 - __main__ - INFO - Chargement des données depuis data/daily_data.csv
+2026-01-06 22:02:55,176 - __main__ - ERROR - Fichier non trouvé: [Errno 2] No such file or directory: 'data/daily_data.csv'
+2026-01-06 22:02:55,178 - __main__ - ERROR - Impossible de charger le modèle ou les données
+2026-01-06 22:08:28,762 - __main__ - INFO - Démarrage de l'API Flask LSTM
+2026-01-06 22:08:28,764 - __main__ - INFO - Chargement du modèle depuis models/lstm_model.pkl
+2026-01-06 22:08:38,493 - __main__ - INFO - Modèle chargé avec succès
+2026-01-06 22:08:38,493 - __main__ - INFO - Chargement des données depuis data/daily_data_preprocessed.csv
+2026-01-06 22:08:38,496 - __main__ - ERROR - Erreur lors du chargement: 'date'
+2026-01-06 22:08:38,496 - __main__ - ERROR - Impossible de charger le modèle ou les données
+2026-01-06 22:19:41,588 - __main__ - INFO - Démarrage de l'API Flask LSTM
+2026-01-06 22:19:41,588 - __main__ - INFO - Chargement du modèle depuis models/lstm_model.pkl
+2026-01-06 22:19:51,418 - __main__ - INFO - Modèle chargé avec succès
+2026-01-06 22:19:51,418 - __main__ - INFO - Chargement des données depuis data/daily_data_preprocessed.csv
+2026-01-06 22:19:51,438 - __main__ - INFO - Données chargées: 374 enregistrements
+2026-01-06 22:19:51,438 - __main__ - INFO - Période: 2009-12-01 00:00:00 à 2010-12-09 00:00:00
+2026-01-06 22:19:51,438 - __main__ - INFO - API prête à recevoir des requêtes
+2026-01-06 22:19:51,483 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.2:5000
+2026-01-06 22:19:51,483 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-06 22:20:07,597 - werkzeug - INFO - 127.0.0.1 - - [06/Jan/2026 22:20:07] "[33mGET / HTTP/1.1[0m" 404 -
+2026-01-06 22:20:07,940 - werkzeug - INFO - 127.0.0.1 - - [06/Jan/2026 22:20:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-06 22:21:21,170 - __main__ - INFO - Health check appelé
+2026-01-06 22:21:21,172 - werkzeug - INFO - 127.0.0.1 - - [06/Jan/2026 22:21:21] "GET /health HTTP/1.1" 200 -
+2026-01-06 22:23:00,868 - __main__ - INFO - Prédiction demandée pour 2026-01-07
+2026-01-06 22:23:00,917 - __main__ - ERROR - Erreur lors de la prédiction: "['day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday'] not in index"
+Traceback (most recent call last):
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 317, in predict
+    predicted_revenue = make_prediction(target_date)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 211, in make_prediction
+    lstm_input = create_lstm_input(features_df)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 182, in create_lstm_input
+    features = features_df[feature_cols].values
+               ~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\indexes\base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\indexes\base.py", line 6252, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday'] not in index"
+2026-01-06 22:23:00,938 - werkzeug - INFO - 127.0.0.1 - - [06/Jan/2026 22:23:00] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+2026-01-06 22:23:00,950 - __main__ - INFO - Prédiction demandée pour 2026-01-08
+2026-01-06 22:23:00,980 - __main__ - ERROR - Erreur lors de la prédiction: "['day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday'] not in index"
+Traceback (most recent call last):
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 317, in predict
+    predicted_revenue = make_prediction(target_date)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 211, in make_prediction
+    lstm_input = create_lstm_input(features_df)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 182, in create_lstm_input
+    features = features_df[feature_cols].values
+               ~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\indexes\base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\indexes\base.py", line 6252, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday'] not in index"
+2026-01-06 22:23:00,988 - werkzeug - INFO - 127.0.0.1 - - [06/Jan/2026 22:23:00] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+2026-01-06 22:27:59,589 - __main__ - INFO - Démarrage de l'API Flask LSTM
+2026-01-06 22:27:59,589 - __main__ - INFO - Chargement du modèle depuis models/lstm_model.pkl
+2026-01-06 22:28:08,909 - __main__ - INFO - Modèle chargé avec succès
+2026-01-06 22:28:08,909 - __main__ - INFO - Chargement des données depuis data/daily_data_preprocessed.csv
+2026-01-06 22:28:08,924 - __main__ - INFO - Données chargées: 374 enregistrements
+2026-01-06 22:28:08,924 - __main__ - INFO - Période: 2009-12-01 00:00:00 à 2010-12-09 00:00:00
+2026-01-06 22:28:08,926 - __main__ - INFO - API prête à recevoir des requêtes
+2026-01-06 22:28:08,963 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.2:5000
+2026-01-06 22:28:08,963 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-06 22:28:33,258 - __main__ - INFO - Health check appelé
+2026-01-06 22:28:33,261 - werkzeug - INFO - 127.0.0.1 - - [06/Jan/2026 22:28:33] "GET /health HTTP/1.1" 200 -
+2026-01-06 22:29:07,258 - __main__ - INFO - Prédiction demandée pour 2026-01-07
+2026-01-06 22:29:07,275 - __main__ - ERROR - Erreur lors de la prédiction: "['day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday'] not in index"
+Traceback (most recent call last):
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 317, in predict
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 211, in make_prediction
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 182, in create_lstm_input
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\indexes\base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\indexes\base.py", line 6252, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday'] not in index"
+2026-01-06 22:29:07,285 - werkzeug - INFO - 127.0.0.1 - - [06/Jan/2026 22:29:07] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+2026-01-06 22:29:07,294 - __main__ - INFO - Prédiction demandée pour 2026-01-08
+2026-01-06 22:29:07,318 - __main__ - ERROR - Erreur lors de la prédiction: "['day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday'] not in index"
+Traceback (most recent call last):
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 317, in predict
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 211, in make_prediction
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 182, in create_lstm_input
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\indexes\base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\indexes\base.py", line 6252, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday'] not in index"
+2026-01-06 22:29:07,318 - werkzeug - INFO - 127.0.0.1 - - [06/Jan/2026 22:29:07] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+2026-01-06 22:31:05,482 - __main__ - INFO - Démarrage de l'API Flask LSTM
+2026-01-06 22:31:05,482 - __main__ - INFO - Chargement du modèle depuis models/lstm_model.pkl
+2026-01-06 22:31:14,492 - __main__ - INFO - Modèle chargé avec succès
+2026-01-06 22:31:14,492 - __main__ - INFO - Chargement des données depuis data/daily_data_preprocessed.csv
+2026-01-06 22:31:14,509 - __main__ - INFO - Données chargées: 374 enregistrements
+2026-01-06 22:31:14,513 - __main__ - INFO - Période: 2009-12-01 00:00:00 à 2010-12-09 00:00:00
+2026-01-06 22:31:14,514 - __main__ - INFO - API prête à recevoir des requêtes
+2026-01-06 22:31:14,533 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.2:5000
+2026-01-06 22:31:14,533 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-06 22:31:33,565 - __main__ - INFO - Prédiction demandée pour 2026-01-07
+2026-01-06 22:31:33,588 - __main__ - ERROR - Erreur lors de la prédiction: "['day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday'] not in index"
+Traceback (most recent call last):
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 317, in predict
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 211, in make_prediction
+    predicted_revenue = float(prediction[0][0])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 182, in create_lstm_input
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\indexes\base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\indexes\base.py", line 6252, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday'] not in index"
+2026-01-06 22:31:33,592 - werkzeug - INFO - 127.0.0.1 - - [06/Jan/2026 22:31:33] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+2026-01-06 22:31:33,600 - __main__ - INFO - Prédiction demandée pour 2026-01-08
+2026-01-06 22:31:33,623 - __main__ - ERROR - Erreur lors de la prédiction: "['day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday'] not in index"
+Traceback (most recent call last):
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 317, in predict
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 211, in make_prediction
+    predicted_revenue = float(prediction[0][0])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 182, in create_lstm_input
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\indexes\base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\indexes\base.py", line 6252, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday'] not in index"
+2026-01-06 22:31:33,627 - werkzeug - INFO - 127.0.0.1 - - [06/Jan/2026 22:31:33] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+2026-01-06 22:45:34,578 - __main__ - INFO - Démarrage de l'API Flask LSTM
+2026-01-06 22:45:34,578 - __main__ - INFO - Chargement du modèle depuis models/lstm_model.pkl
+2026-01-06 22:45:44,675 - __main__ - INFO - Colonnes attendues par le modèle: ['Quantity', 'Num_Transactions', 'Revenue_lag_1', 'Quantity_lag_1', 'Revenue_lag_7', 'Quantity_lag_7', 'Revenue_lag_14', 'Quantity_lag_14', 'Revenue_rolling_7', 'Quantity_rolling_7', 'month', 'week_of_year', 'day', 'day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday']
+2026-01-06 22:45:44,675 - __main__ - INFO - Modèle chargé avec succès
+2026-01-06 22:45:44,683 - __main__ - INFO - Chargement des données depuis data/daily_data_preprocessed.csv
+2026-01-06 22:45:44,702 - __main__ - INFO - Données chargées: 374 enregistrements
+2026-01-06 22:45:44,702 - __main__ - INFO - Période: 2009-12-01 00:00:00 à 2010-12-09 00:00:00
+2026-01-06 22:45:44,705 - __main__ - INFO - API prête à recevoir des requêtes
+2026-01-06 22:45:44,752 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.2:5000
+2026-01-06 22:45:44,752 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-06 22:46:10,814 - __main__ - INFO - Prédiction demandée pour 2026-01-07
+2026-01-06 22:46:10,847 - __main__ - ERROR - Erreur lors de la prédiction: "['day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday'] not in index"
+Traceback (most recent call last):
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 317, in predict
+    'predicted_revenue': round(predicted_revenue, 2)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 211, in make_prediction
+    # Si le scaler a été appliqué au target, il faut inverse_transform
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 182, in create_lstm_input
+    features_scaled = scaler.transform(features)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\indexes\base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\indexes\base.py", line 6252, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday'] not in index"
+2026-01-06 22:46:10,855 - werkzeug - INFO - 127.0.0.1 - - [06/Jan/2026 22:46:10] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+2026-01-06 22:46:27,594 - __main__ - INFO - Démarrage de l'API Flask LSTM
+2026-01-06 22:46:27,594 - __main__ - INFO - Chargement du modèle depuis models/lstm_model.pkl
+2026-01-06 22:46:37,474 - __main__ - INFO - Colonnes attendues par le modèle: ['Quantity', 'Num_Transactions', 'Revenue_lag_1', 'Quantity_lag_1', 'Revenue_lag_7', 'Quantity_lag_7', 'Revenue_lag_14', 'Quantity_lag_14', 'Revenue_rolling_7', 'Quantity_rolling_7', 'month', 'week_of_year', 'day', 'day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday']
+2026-01-06 22:46:37,474 - __main__ - INFO - Modèle chargé avec succès
+2026-01-06 22:46:37,474 - __main__ - INFO - Chargement des données depuis data/daily_data_preprocessed.csv
+2026-01-06 22:46:37,499 - __main__ - INFO - Données chargées: 374 enregistrements
+2026-01-06 22:46:37,502 - __main__ - INFO - Période: 2009-12-01 00:00:00 à 2010-12-09 00:00:00
+2026-01-06 22:46:37,502 - __main__ - INFO - API prête à recevoir des requêtes
+2026-01-06 22:46:37,563 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.2:5000
+2026-01-06 22:46:37,563 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-06 22:47:01,368 - __main__ - INFO - Prédiction demandée pour 2026-01-07
+2026-01-06 22:47:01,400 - __main__ - ERROR - Erreur lors de la prédiction: "['day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday'] not in index"
+Traceback (most recent call last):
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 317, in predict
+    'predicted_revenue': round(predicted_revenue, 2)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 211, in make_prediction
+    # Si le scaler a été appliqué au target, il faut inverse_transform
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 182, in create_lstm_input
+    features_scaled = scaler.transform(features)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\indexes\base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\indexes\base.py", line 6252, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday'] not in index"
+2026-01-06 22:47:01,403 - werkzeug - INFO - 127.0.0.1 - - [06/Jan/2026 22:47:01] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+2026-01-06 22:51:37,927 - __main__ - INFO - Démarrage de l'API Flask LSTM
+2026-01-06 22:51:37,928 - __main__ - INFO - Chargement du modèle depuis models/lstm_model.pkl
+2026-01-06 22:51:48,378 - __main__ - INFO - Colonnes attendues par le modèle: ['Quantity', 'Num_Transactions', 'Revenue_lag_1', 'Quantity_lag_1', 'Revenue_lag_7', 'Quantity_lag_7', 'Revenue_lag_14', 'Quantity_lag_14', 'Revenue_rolling_7', 'Quantity_rolling_7', 'month', 'week_of_year', 'day', 'day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday']
+2026-01-06 22:51:48,394 - __main__ - INFO - Modèle chargé avec succès
+2026-01-06 22:51:48,394 - __main__ - INFO - Chargement des données depuis data/daily_data_preprocessed.csv
+2026-01-06 22:51:48,396 - __main__ - INFO - Données chargées: 374 enregistrements
+2026-01-06 22:51:48,411 - __main__ - INFO - Période: 2009-12-01 00:00:00 à 2010-12-09 00:00:00
+2026-01-06 22:51:48,411 - __main__ - INFO - API prête à recevoir des requêtes
+2026-01-06 22:51:48,447 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.2:5000
+2026-01-06 22:51:48,447 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-06 22:52:00,948 - __main__ - INFO - Prédiction demandée pour 2026-01-07
+2026-01-06 22:52:00,980 - __main__ - ERROR - Erreur lors de la prédiction: "['day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday'] not in index"
+Traceback (most recent call last):
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 317, in predict
+    save_prediction(target_date, predicted_revenue)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 211, in make_prediction
+    prediction = model.predict(lstm_input, verbose=0)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\Desktop\time-series-forecasting-ml-monitoring\time-series-forecasting-ml-monitoring\api\app.py", line 182, in create_lstm_input
+    # Remplacer NaN par 0
+               ^^^^^^^^^^^
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\indexes\base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "C:\Users\21263\anaconda3\Lib\site-packages\pandas\core\indexes\base.py", line 6252, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday'] not in index"
+2026-01-06 22:52:00,984 - werkzeug - INFO - 127.0.0.1 - - [06/Jan/2026 22:52:00] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+2026-01-06 22:54:46,859 - __main__ - INFO - Modèle chargé avec succès
+2026-01-06 22:54:46,895 - __main__ - INFO - Colonnes attendues par le modèle: ['Quantity', 'Num_Transactions', 'Revenue_lag_1', 'Quantity_lag_1', 'Revenue_lag_7', 'Quantity_lag_7', 'Revenue_lag_14', 'Quantity_lag_14', 'Revenue_rolling_7', 'Quantity_rolling_7', 'month', 'week_of_year', 'day', 'day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday']
+2026-01-06 22:54:47,151 - __main__ - INFO - Prédiction sauvegardée pour 2010-12-10
+2026-01-06 23:01:05,358 - __main__ - INFO - Démarrage de l'API Flask LSTM
+2026-01-06 23:01:05,358 - __main__ - INFO - Chargement du modèle depuis models/lstm_model.pkl
+2026-01-06 23:01:09,571 - __main__ - INFO - Colonnes attendues par le modèle: ['Quantity', 'Num_Transactions', 'Revenue_lag_1', 'Quantity_lag_1', 'Revenue_lag_7', 'Quantity_lag_7', 'Revenue_lag_14', 'Quantity_lag_14', 'Revenue_rolling_7', 'Quantity_rolling_7', 'month', 'week_of_year', 'day', 'day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday']
+2026-01-06 23:01:09,571 - __main__ - INFO - Modèle chargé avec succès
+2026-01-06 23:01:09,571 - __main__ - INFO - Chargement des données depuis data/daily_data_preprocessed.csv
+2026-01-06 23:01:09,579 - __main__ - INFO - Données chargées: 374 enregistrements
+2026-01-06 23:01:09,580 - __main__ - INFO - Période: 2009-12-01 00:00:00 à 2010-12-09 00:00:00
+2026-01-06 23:01:09,580 - __main__ - INFO - API prête à recevoir des requêtes
+2026-01-06 23:01:09,595 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.2:5000
+2026-01-06 23:01:09,595 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-07 16:24:24,792 - __main__ - INFO - Démarrage de l'API Flask LSTM
+2026-01-07 16:24:24,795 - __main__ - INFO - Chargement du modèle depuis models/lstm_model.pkl
+2026-01-07 16:24:51,282 - __main__ - INFO - Colonnes attendues par le modèle: ['Quantity', 'Num_Transactions', 'Revenue_lag_1', 'Quantity_lag_1', 'Revenue_lag_7', 'Quantity_lag_7', 'Revenue_lag_14', 'Quantity_lag_14', 'Revenue_rolling_7', 'Quantity_rolling_7', 'month', 'week_of_year', 'day', 'day_of_week_Monday', 'day_of_week_Saturday', 'day_of_week_Sunday', 'day_of_week_Thursday', 'day_of_week_Tuesday', 'day_of_week_Wednesday']
+2026-01-07 16:24:51,284 - __main__ - INFO - Modèle chargé avec succès
+2026-01-07 16:24:51,285 - __main__ - INFO - Chargement des données depuis data/daily_data_preprocessed.csv
+2026-01-07 16:24:51,335 - __main__ - INFO - Données chargées: 374 enregistrements
+2026-01-07 16:24:51,349 - __main__ - INFO - Période: 2009-12-01 00:00:00 à 2010-12-09 00:00:00
+2026-01-07 16:24:51,350 - __main__ - INFO - API prête à recevoir des requêtes
+2026-01-07 16:24:51,441 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.6:5000
+2026-01-07 16:24:51,448 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-07 16:26:41,165 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 16:26:41] "[33mGET / HTTP/1.1[0m" 404 -
+2026-01-07 16:26:41,586 - werkzeug - INFO - 127.0.0.1 - - [07/Jan/2026 16:26:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
